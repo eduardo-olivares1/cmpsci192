@@ -60,7 +60,7 @@
         {
             $this->co_name3 = "Eduardo Olivares Cars";
             $this->main_url = "http://24.144.82.126";
-            $this->main_email = "";
+            $this->main_email = "eolivares2@my.canyons.edu";
         }
 
         function  main_info508()
