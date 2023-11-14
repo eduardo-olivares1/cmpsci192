@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMP SCI 192</title>
+    <title>CMP SCI 192 | Home</title>
 </head>
 <body>
     <?php 
