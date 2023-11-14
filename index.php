@@ -23,6 +23,55 @@
     ?>
 
     <hr>
+    <h2>Lab 7 Assignment</h2>
+    <?php
+    class Company541
+    {
+
+        public $co_name3 = 'House_R_Us';
+        private $co_addr3 = '123 Main St';
+        private $co_city3 = 'Boston MA 02101';
+
+        function getHeader565($companyName, $color)
+        {
+            $tableStr = <<<MYTABLE
+                        <table style='background-color:$color;width:100%'>
+                            <tr>
+                            <td><h1 style='text-align:center'>$companyName</h1></td>
+                            </tr>
+                        </table>
+                        MYTABLE;
+
+            return $tableStr;
+        }
+
+        function getFooter857($color)
+        {
+
+            $tableStr = <<<MYTABLE
+                        <table style='background-color:$color'>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Company Address</th>
+                            <th>Company City</th>
+                        </tr>
+                        <tr>
+                            <td>$this->co_name3</td>
+                            <td>$this->co_addr3</td>
+                            <td>$this->co_city3</td>
+                        </tr>
+                        </table>
+                        MYTABLE;
+
+            return $tableStr;
+        }
+    }
+
+    $object579 = new Company541();
+    
+    echo $object579->getHeader565($name323, "green") . "<br><br>" . $object579->getFooter857('orange');
+    ?>
+    <hr>
     <h2>Lab 6 Assignment</h2>
     <?php
     function getHeader565($companyName, $color)
