@@ -40,9 +40,9 @@
                                 <th>Company City</th>
                             </tr>
                             <tr>
-                                <td>$this->co_name3</td>
-                                <td>$this->co_addr3</td>
-                                <td>$this->co_city3</td>
+                                <td><b>$this->co_name3</b></td>
+                                <td><b>$this->co_addr3</b></td>
+                                <td><b>$this->co_city3</b></td>
                             </tr>
                             </table>
                             MYTABLE;
