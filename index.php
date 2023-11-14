@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMP SCI 192 | Home</title>
 </head>
+
 <body>
-    <?php 
+    <?php
     if (!empty($_REQUEST['debug'])) {
         $debug578 = true;
         print "DEBUG turned ON<br>";
-        }  
-    else {
+    } else {
         $debug578 = false;
-         } 
+    }
     ?>
     <?php
-        $name323 = "Vacay4Sale";
-	$addr354 = "789 10th St";
-	$city232 = "Seattle WA 98101";
+    $name323 = "Vacay4Sale";
+    $addr354 = "789 10th St";
+    $city232 = "Seattle WA 98101";
     ?>
 
     <hr>
@@ -62,8 +63,8 @@
 
     echo getHeader565($name323, "green") . "<br>" . getFooter857('orange');
     ?>
-   <hr>
-   <h2>Lab 5 Assignment</h2>
+    <hr>
+    <h2>Lab 5 Assignment</h2>
     <?php
     $myarray726 = null;
     # create array for a Car Dealership
@@ -94,9 +95,9 @@
 
     display_product_671($myarray726);
     ?>
-    <hr> 
+    <hr>
     <h2>Lab 4 Assignment</h2>
-    <?php 
+    <?php
     function display_name_238($parm)
     {
         return "<h1>Name: " . $parm . "</h1>";
@@ -109,19 +110,20 @@
     }
 
     print display_name_238($name323);
-    print display_address_363();    
+    print display_address_363();
     ?>
-    <hr> 
+    <hr>
     <h2>Lab 3 Assignment</h2>
     <a href='http://24.144.82.126'>Debug OFF</a>
-    <a href='http://24.144.82.126?debug=true'>Debug ON</a> 
+    <a href='http://24.144.82.126?debug=true'>Debug ON</a>
     <hr>
     <h2>Lab 2 Assignment</h2>
-    <h1><?php print $name323;?></h1>
-    <p><?php print $addr354;?></p>
-    <b><?php print $city232;?></b>
+    <h1><?php print $name323; ?></h1>
+    <p><?php print $addr354; ?></p>
+    <b><?php print $city232; ?></b>
     <hr />
     <h2>Lab 1 Assignment</h2>
-    <p>My name is <?php print "Eduardo Olivares";?></p>
+    <p>My name is <?php print "Eduardo Olivares"; ?></p>
 </body>
+
 </html>
