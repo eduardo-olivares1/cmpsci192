@@ -106,10 +106,16 @@
                 $this->whichpage = "Home";
             }
         }
+
+        function getMain450(){
+            $this->setWhichPage();
+            $html_response = "<h1>" . $this->whichpage . "</h1>";
+            return $html_response;
+        }
     }
 
     $object508 = new Child521();
-    echo $object508->getHeader565("green") . $object508->getNavBar494() .  $object508->main_info508() . $object508->getFooter857('orange');
+    echo $object508->getHeader565("green") . $object508->getNavBar494() . $object508->getMain450() .  $object508->main_info508() . $object508->getFooter857('orange');
     ?>
 </body>
 
