@@ -9,6 +9,10 @@
 
 <body>
     <?php
+    function isLocalhost($whitelist = ['127.0.0.1', '::1']) {
+        return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+    }
+
     class Company541
     {
 
@@ -61,7 +65,11 @@
         public function __construct()
         {
             $this->co_name3 = "Eduardo Olivares Cars";
-            $this->main_url = "http://24.144.82.126";
+            if(isLocalhost()){
+                $this->main_url = "http://localhost";
+            }else{
+                $this->main_url = "http://24.144.82.126";
+            }
             $this->main_email = "eolivares2@my.canyons.edu";
         }
 
