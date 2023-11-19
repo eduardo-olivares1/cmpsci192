@@ -9,7 +9,8 @@
 
 <body>
     <?php
-    function isLocalhost($whitelist = ['127.0.0.1', '::1']) {
+    function isLocalhost($whitelist = ['127.0.0.1', '::1'])
+    {
         return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
     }
 
@@ -65,9 +66,9 @@
         public function __construct()
         {
             $this->co_name3 = "Eduardo Olivares Cars";
-            if(isLocalhost()){
+            if (isLocalhost()) {
                 $this->main_url = "http://localhost";
-            }else{
+            } else {
                 $this->main_url = "http://24.144.82.126";
             }
             $this->main_email = "eolivares2@my.canyons.edu";
@@ -115,9 +116,10 @@
             }
         }
 
-        function getMain450(){
+        function getMain450()
+        {
             $this->setWhichPage();
-            $html_response = "<h1>" . $this->whichpage . "</h1>";
+            $html_response = "<h1>The " . $this->whichpage . " Page</h1>";
             return $html_response;
         }
     }
