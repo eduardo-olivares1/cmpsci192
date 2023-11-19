@@ -15,6 +15,7 @@
         public $co_name3 = 'House_R_Us';
         private $co_addr3 = '123 Main St';
         private $co_city3 = 'Boston MA 02101';
+        protected $whichpage = "Home";
 
         function getHeader565($color)
         {
@@ -95,6 +96,15 @@
             }
             $html_response .= "</table>";
             return $html_response;
+        }
+
+        function setWhichPage()
+        {
+            if (isset($_GET['whichpage'])) {
+                $this->whichpage = $_GET['whichpage'];
+            } else {
+                $this->whichpage = "Home";
+            }
         }
     }
 
