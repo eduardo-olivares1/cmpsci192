@@ -1,0 +1,4 @@
+12345, 2002 Ford F-150, 7500.00, Excellent condition low  miles
+45678, 1998 Chevy Camaro, 9995.00, Great car 4 cruising
+67890, 2000 Toyota Corolla, 6990.00, Mom wants you 2 buy a conservative car
+89123, 1995 Honda Accord, 8500.00, 110000 miles but it is a honda it will last 
