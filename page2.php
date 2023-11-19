@@ -117,7 +117,7 @@
 
         function getMain450(){
             $this->setWhichPage();
-            $html_response = "<h1>" . $this->whichpage . "</h1>";
+            $html_response = "<h1>The " . $this->whichpage . " Page</h1>";
             return $html_response;
         }
     }
