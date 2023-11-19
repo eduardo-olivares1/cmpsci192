@@ -120,6 +120,26 @@
         {
             $this->setWhichPage();
             $html_response = "<h1>The " . $this->whichpage . " Page</h1>";
+            $html_response .= $this->displaySpecials313();
+            return $html_response;
+        }
+
+        function displaySpecials313()
+        {
+            $html_response = "<div align='center'><h3>Weekly Specials</h3><table border='1' width='50%'><tbody>";
+            $fileContents = file_get_contents('car.txt');
+            $rows = explode("\n", $fileContents);
+
+            foreach ($rows as $row) {
+                $columns = explode(",", $row);
+                $html_response .= "<tr>";
+                foreach ($columns as $column) {
+                    $html_response .= "<td>$column</td>";
+                }
+                $html_response .= "</tr>";
+            }
+
+            $html_response .= "</table></div>";
             return $html_response;
         }
     }

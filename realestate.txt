@@ -1,0 +1,4 @@
+12345, 123 Main St. Canyon Country, 650000.00, 3+2 on the edge of town near the wash
+45678, 456 AQ Blvd Aqua Dulce, 199950.00, 4+1.75 in Rural Aqua Dulce
+67890, 789 McBean Pkwy Valencia, 499950.00, 4+3 View Home live near the MALL
+89123, 654 Horse Trails Sylmar, 599900.00, 2+1 on a huge horse zoned lot 
