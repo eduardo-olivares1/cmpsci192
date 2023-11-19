@@ -9,12 +9,17 @@
 
 <body>
     <?php
+    function isLocalhost($whitelist = ['127.0.0.1', '::1']) {
+        return in_array($_SERVER['REMOTE_ADDR'], $whitelist);
+    }
+
     class Company541
     {
 
         public $co_name3 = 'House_R_Us';
         private $co_addr3 = '123 Main St';
         private $co_city3 = 'Boston MA 02101';
+        protected $whichpage = "Home";
 
         function getHeader565($color)
         {
@@ -55,11 +60,16 @@
     {
         private $main_url;
         private $main_email;
+        private $navbar_array = array();
 
         public function __construct()
         {
             $this->co_name3 = "Eduardo Olivares Cars";
-            $this->main_url = "http://24.144.82.126";
+            if(isLocalhost()){
+                $this->main_url = "http://localhost";
+            }else{
+                $this->main_url = "http://24.144.82.126";
+            }
             $this->main_email = "eolivares2@my.canyons.edu";
         }
 
@@ -74,10 +84,46 @@
             $html_response .= "<a href='" . $this->main_url . "'>Click HERE for Web Page #1</a>";
             return $html_response;
         }
+
+        # create array for a Car/house/travel Nav Bar
+        function  create_navbar_array()
+        {
+            $fullurl = $this->main_url . "/page2.php";   // get the main url address of this web page
+            $this->navbar_array = array(
+                "Home" => "$fullurl?whichpage=Home", "Sales" => "$fullurl?whichpage=Sales",
+                "Support" => "$fullurl?whichpage=Support", "Contacts" => "$fullurl?whichpage=Contacts"
+            );
+        }
+
+        function getNavBar494()
+        {
+            $this->create_navbar_array();
+            $html_response = "<table>";
+            foreach ($this->navbar_array as $key => $value) {
+                $html_response .= "<td><a href='$value'>$key</a></td>";
+            }
+            $html_response .= "</table>";
+            return $html_response;
+        }
+
+        function setWhichPage()
+        {
+            if (isset($_GET['whichpage'])) {
+                $this->whichpage = $_GET['whichpage'];
+            } else {
+                $this->whichpage = "Home";
+            }
+        }
+
+        function getMain450(){
+            $this->setWhichPage();
+            $html_response = "<h1>" . $this->whichpage . "</h1>";
+            return $html_response;
+        }
     }
 
     $object508 = new Child521();
-    echo $object508->getHeader565("green") . $object508->main_info508() . $object508->getFooter857('orange');
+    echo $object508->getHeader565("green") . $object508->getNavBar494() . $object508->getMain450() .  $object508->main_info508() . $object508->getFooter857('orange');
     ?>
 </body>
 
