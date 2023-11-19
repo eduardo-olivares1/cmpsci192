@@ -55,6 +55,7 @@
     {
         private $main_url;
         private $main_email;
+        private $navbar_array = array();
 
         public function __construct()
         {
@@ -74,10 +75,31 @@
             $html_response .= "<a href='" . $this->main_url . "'>Click HERE for Web Page #1</a>";
             return $html_response;
         }
+
+        # create array for a Car/house/travel Nav Bar
+        function  create_navbar_array()
+        {
+            $fullurl = $this->main_url . "/page2.php";   // get the main url address of this web page
+            $this->navbar_array = array(
+                "Home" => "$fullurl?whichpage=Home", "Sales" => "$fullurl?whichpage=Sales",
+                "Support" => "$fullurl?whichpage=Support", "Contacts" => "$fullurl?whichpage=Contacts"
+            );
+        }
+
+        function getNavBar494()
+        {
+            $this->create_navbar_array();
+            $html_response = "<table>";
+            foreach ($this->navbar_array as $key => $value) {
+                $html_response .= "<td><a href='$value'>$key</a></td>";
+            }
+            $html_response .= "</table>";
+            return $html_response;
+        }
     }
 
     $object508 = new Child521();
-    echo $object508->getHeader565("green") . $object508->main_info508() . $object508->getFooter857('orange');
+    echo $object508->getHeader565("green") . $object508->getNavBar494() .  $object508->main_info508() . $object508->getFooter857('orange');
     ?>
 </body>
 
