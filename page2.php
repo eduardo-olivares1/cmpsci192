@@ -21,6 +21,30 @@
         private $co_addr3 = '123 Main St';
         private $co_city3 = 'Boston MA 02101';
         protected $whichpage = "Home";
+        protected $sqldb5 = null;
+
+        function getDatabase457()
+        {
+            $db_host = getenv('DB_HOST');
+            $db_user = getenv('DB_USER');
+            $db_pass = getenv('DB_PASS');
+            $db_database = "companydb";
+            try {
+                $this->sqldb5 = new mysqli($db_host, $db_user, $db_pass, $db_database);
+                print "<b>Database " . $db_database . " connect and select complete</b>";
+            } catch (Exception $e) {
+                $this->sqldb5 = null;
+                print "<b>Unable to connect to database</b>";
+            }
+        }
+
+        function closeDatabase785()
+        {
+            if ($this->sqldb5 != null) {
+                $this->sqldb5->close();
+                print "<b>Database closed</b>";
+            }
+        }
 
         function getHeader565($color)
         {
@@ -145,7 +169,9 @@
     }
 
     $object508 = new Child521();
+    $object508->getDatabase457();
     echo $object508->getHeader565("green") . $object508->getNavBar494() . $object508->getMain450() .  $object508->main_info508() . $object508->getFooter857('orange');
+    $object508->closeDatabase785();
     ?>
 </body>
 
