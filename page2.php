@@ -144,7 +144,19 @@
         {
             $this->setWhichPage();
             $html_response = "<h1>The " . $this->whichpage . " Page</h1>";
-            $html_response .= $this->displaySpecials313();
+            $page = ucfirst($this->whichpage);
+            if ($page == "Home") {
+                $html_response .= $this->displaySpecials313();
+            } else if ($page == "Sales") {
+                $html_response .= $this->getSqlProduct476();
+            } else if ($page == "Support") {
+                // TODO: call method(s) to create Support page table (NOT DONE YET)
+            } else if ($page == "Contacts") {
+                // TODO: call method(s) to create Contacts page table (NOT DONE YET)
+            } else {
+                $html_response .= "Error Unknown web page requested ($page)";
+            }
+
             return $html_response;
         }
 
@@ -163,6 +175,22 @@
                 $html_response .= "</tr>";
             }
 
+            $html_response .= "</table></div>";
+            return $html_response;
+        }
+
+        function getSqlProduct476()
+        {
+            $sql = "SELECT * FROM product";
+            $result = $this->sqldb5->query($sql);
+            $html_response = "<div align='center'><h3>Weekly Specials</h3><table border='1' width='50%'><tbody>";
+            while ($row = $result->fetch_assoc()) {
+                $html_response .= "<tr>";
+                $html_response .= "<td>" . $row['product_id'] . "</td>";
+                $html_response .= "<td>" . $row['product_name'] . "</td>";
+                $html_response .= "<td>" . $row['product_price'] . "</td>";
+                $html_response .= "</tr>";
+            }
             $html_response .= "</table></div>";
             return $html_response;
         }
