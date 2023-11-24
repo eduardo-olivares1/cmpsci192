@@ -89,7 +89,7 @@
                 return $html_response = "<div align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
             }
 
-            $html_response = "<div align='center'><h3>Contacts</h3><table border='1' width='50%'><tbody>";
+            $html_response = "<div align='center'><h3>Database Contacts</h3><table border='1' width='50%'><tbody>";
             while ($row = $result->fetch_assoc()) {
                 $html_response .= "<tr>";
                 $html_response .= "<td>" . $row['contactName'] . "</td>";
