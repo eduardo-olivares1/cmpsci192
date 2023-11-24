@@ -80,7 +80,8 @@
             return $tableStr;
         }
 
-        function getContacts557(){
+        function getContacts557()
+        {
             $sql = "SELECT * FROM ContactsTable";
             try {
                 $result = $this->sqldb5->query($sql);
