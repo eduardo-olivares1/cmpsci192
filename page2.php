@@ -126,7 +126,7 @@
             $this->create_navbar_array();
             $html_response = "<table width='100%' style='background-color:grey'>";
             foreach ($this->navbar_array as $key => $value) {
-                $html_response .= "<td class='text-center h4 py-2'><a class='nav-link' href='$value'>$key</a></td>";
+                $html_response .= "<td class='text-center h4 py-2'><a class='nav-link' style='color:white' href='$value'>$key</a></td>";
             }
             $html_response .= "</table>";
             return $html_response;
