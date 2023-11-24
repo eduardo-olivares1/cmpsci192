@@ -32,7 +32,7 @@
             $db_database = "companydb";
             try {
                 $this->sqldb5 = new mysqli($db_host, $db_user, $db_pass, $db_database);
-                print "<b>Database " . $db_database . " connect and select complete</b>";
+                print "<b class='visually-hidden'>Database " . $db_database . " connect and select complete</b>";
             } catch (Exception $e) {
                 $this->sqldb5 = null;
                 print "<b>Unable to connect to database</b>";
@@ -43,7 +43,7 @@
         {
             if ($this->sqldb5 != null) {
                 $this->sqldb5->close();
-                print "<b>Database closed</b>";
+                print "<b class='visually-hidden'>Database closed</b>";
             }
         }
 
