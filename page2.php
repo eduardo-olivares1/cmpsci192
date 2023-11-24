@@ -144,7 +144,7 @@
         function getMain450()
         {
             $this->setWhichPage();
-            $html_response = "<h1 class='mt-3'>The " . $this->whichpage . " Page</h1>";
+            $html_response = "<div class='py-4 text-center' style='background-image:url(https://www.burlingtongazette.ca/wp-content/uploads/Used-cars-dealership.jpg);background-repeat: no-repeat;'><h1>The " . $this->whichpage . " Page</h1></div>";
             $page = ucfirst($this->whichpage);
             if ($page == "Home") {
                 $html_response .= $this->displaySpecials313();
@@ -163,7 +163,7 @@
 
         function displaySpecials313()
         {
-            $html_response = "<div align='center'><h3>Weekly Specials</h3><table border='1' width='50%'><tbody>";
+            $html_response = "<div class='py-3' align='center'><h3>Weekly Specials</h3><table border='1' width='50%'><tbody>";
             $fileContents = file_get_contents('car.txt');
             $rows = explode("\n", $fileContents);
 
@@ -186,9 +186,9 @@
             try {
                 $result = $this->sqldb5->query($sql);
             } catch (Exception $e) {
-                return $html_response = "<div align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
+                return $html_response = "<div class='py-3' align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
             }
-            $html_response = "<div align='center'><h3>Sales</h3><table border='1' width='50%'><tbody>";
+            $html_response = "<div class='py-3' align='center'><h3>Sales</h3><table border='1' width='50%'><tbody>";
             while ($row = $result->fetch_assoc()) {
                 $html_response .= "<tr>";
                 $html_response .= "<td>" . $row['productID'] . "</td>";
@@ -207,10 +207,10 @@
             try {
                 $result = $this->sqldb5->query($sql);
             } catch (Exception $e) {
-                return $html_response = "<div align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
+                return $html_response = "<div class='py-3' align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
             }
 
-            $html_response = "<div align='center'><h3>Database Contacts</h3><table border='1' width='50%'><tbody>";
+            $html_response = "<div class='py-3' align='center'><h3>Database Contacts</h3><table border='1' width='50%'><tbody>";
             while ($row = $result->fetch_assoc()) {
                 $html_response .= "<tr>";
                 $html_response .= "<td>" . $row['contactName'] . "</td>";
@@ -232,10 +232,10 @@
             try {
                 $result = $this->sqldb5->query($sql);
             } catch (Exception $e) {
-                return $html_response = "<div align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
+                return $html_response = "<div class='py-3' align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
             }
 
-            $html_response = "<div align='center'><h3>Frequently Asked Questions</h3><table border='1' width='50%'><tbody>";
+            $html_response = "<div class='py-3' align='center'><h3>Frequently Asked Questions</h3><table border='1' width='50%'><tbody>";
             while ($row = $result->fetch_assoc()) {
                 $html_response .= "<tr>";
                 $html_response .= "<td><b>Question: </b>" . $row['question'] . "</td>";
