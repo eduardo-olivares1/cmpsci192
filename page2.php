@@ -79,6 +79,29 @@
 
             return $tableStr;
         }
+
+        function getContacts557(){
+            $sql = "SELECT * FROM ContactsTable";
+            try {
+                $result = $this->sqldb5->query($sql);
+            } catch (Exception $e) {
+                return $html_response = "<div align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
+            }
+
+            $html_response = "<div align='center'><h3>Contacts</h3><table border='1' width='50%'><tbody>";
+            while ($row = $result->fetch_assoc()) {
+                $html_response .= "<tr>";
+                $html_response .= "<td>" . $row['contactName'] . "</td>";
+                $html_response .= "<td>" . $row['contactDepartment'] . "</td>";
+                $html_response .= "<td>" . $row['contactPhone'] . "</td>";
+                $html_response .= "<td>" . $row['contactEmail'] . "</td>";
+                $html_response .= "</tr>";
+            }
+
+            $html_response .= "</table></div>";
+
+            return $html_response;
+        }
     }
 
     class Child521 extends Company541
@@ -152,7 +175,7 @@
             } else if ($page == "Support") {
                 // TODO: call method(s) to create Support page table (NOT DONE YET)
             } else if ($page == "Contacts") {
-                // TODO: call method(s) to create Contacts page table (NOT DONE YET)
+                $html_response .= $this->getContacts557();
             } else {
                 $html_response .= "Error Unknown web page requested ($page)";
             }
