@@ -181,14 +181,19 @@
 
         function getSqlProduct476()
         {
-            $sql = "SELECT * FROM product";
-            $result = $this->sqldb5->query($sql);
-            $html_response = "<div align='center'><h3>Weekly Specials</h3><table border='1' width='50%'><tbody>";
+            $sql = "SELECT * FROM CarProduct";
+            try {
+                $result = $this->sqldb5->query($sql);
+            } catch (Exception $e) {
+                return $html_response = "<div align='center'><h3>ERROR: " . $e->getMessage() . "</h3></div>";
+            }
+            $html_response = "<div align='center'><h3>Sales</h3><table border='1' width='50%'><tbody>";
             while ($row = $result->fetch_assoc()) {
                 $html_response .= "<tr>";
-                $html_response .= "<td>" . $row['product_id'] . "</td>";
-                $html_response .= "<td>" . $row['product_name'] . "</td>";
-                $html_response .= "<td>" . $row['product_price'] . "</td>";
+                $html_response .= "<td>" . $row['productID'] . "</td>";
+                $html_response .= "<td>" . $row['productName'] . "</td>";
+                $html_response .= "<td>" . $row['price'] . "</td>";
+                $html_response .= "<td>" . $row['productDescription'] . "</td>";
                 $html_response .= "</tr>";
             }
             $html_response .= "</table></div>";
